@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Pokemon.java&apos; to &apos;javaPrj30pokemon/src/mob&apos;&#x0D;&#x0A;- Original project: &apos;javaPrj30pokemon&apos;&#x0D;&#x0A;- Destination element: &apos;javaPrj30pokemon/src/mob&apos;&#x0D;&#x0A;- Original element: &apos;main.Pokemon.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;mob" element1="/src&lt;main{Pokemon.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1724998104518" units="1" version="1.0"/>
+</session>
