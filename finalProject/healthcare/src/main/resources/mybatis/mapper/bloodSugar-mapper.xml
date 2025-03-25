@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.healthcare.cardiovascularManagement.bloodSugar.BloodSugarMapper">
+
+    <insert id="bsWrite">
+        INSERT INTO BLOOD_SUGAR
+        (
+            NO
+            , ENROLL_DATE
+            <if test="note != null and note != ''">
+            , NOTE
+            </if>
+            , MEMBER_NO
+            , SUGAR
+        )
+        VALUES
+        (
+            SEQ_BLOOD_SUGAR.NEXTVAL
+            , TO_DATE(REPLACE(#{enrollDate}, 'T', ' '), 'YYYY-MM-DD HH24:MI')
+            <if test="note != null and note != ''">
+                , #{note}
+            </if>
+            , #{memberNo}
+            , #{sugar}
+        )
+    </insert>
+
+</mapper>
+
+
