@@ -1,0 +1,12 @@
+package main;
+
+public class BoardController {
+
+	public void createBoard () {
+		
+	}
+	
+	public void dropBoard () {
+		
+	}
+}

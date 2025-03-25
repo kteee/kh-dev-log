@@ -1,0 +1,35 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Main {
+
+	public static void main(String[] args) throws SQLException {
+
+		System.out.println("===== insert =====");
+		
+		// lib
+		
+		// conn
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user = "C##KH";
+		String password = "1234";
+		Connection conn = DriverManager.getConnection(url, user, password);
+		
+		// SQL
+		String sql = "INSERT INTO BOARD (NO, TITLE, CONTENT) VALUES (SEQ_BOARD.NEXTVAL, ? , ? )";
+
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		int result = pstmt.executeUpdate();
+		
+		
+		// insert 성공했는지 확인
+		if(result == 1) {
+			System.out.println("insert 성공!");
+		}
+	}
+
+}

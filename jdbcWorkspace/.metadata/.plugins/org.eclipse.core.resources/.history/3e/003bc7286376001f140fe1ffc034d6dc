@@ -1,0 +1,50 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) throws SQLException {
+
+		System.out.println("===== update =====");
+		
+		// lib
+		
+		// conn
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user = "C##KH";
+		String password = "1234";
+		Connection conn = DriverManager.getConnection(url, user, password);
+		
+		// SQL
+		Scanner sc = new Scanner(System.in);
+		System.out.print("수정할 게시글 번호 : ");
+		String num = sc.nextLine();
+		System.out.print("수정할 제목 : ");
+		String title = sc.nextLine();
+		System.out.print("수정할 내용 : ");
+		String content = sc.nextLine();
+		
+		String sql = """
+					UPDATE BOARD 
+					SET 
+						TITLE = ?
+						, CONTENT = ? 
+					WHERE NO = ? 
+					""";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, title);
+		pstmt.setString(2, content);
+		pstmt.setString(3, num);
+		
+		int result = pstmt.executeUpdate();
+		
+		System.out.println(result + " 행 update 성공!");
+		
+	}
+}

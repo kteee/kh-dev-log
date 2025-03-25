@@ -1,0 +1,50 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class BoardController {
+
+	public void createBoard () throws Exception {
+		
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+		String username = "C##KH";
+		String password = "1234";
+		Connection conn = DriverManager.getConnection(url, username, password);
+		
+		
+		String sql = """
+				CREATE TABLE BOARD (
+					TITLE 		VARCHAR2(100)
+					, CONTENT 	VARCHAR2(100)
+					)
+				""";
+		
+		// Statement stmt = conn.createStatement();
+		// stmt.execute(sql);
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.execute();
+	}
+	
+	public void dropBoard () throws Exception {
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String username = "C##KH";
+		String password = "1234";
+		Connection conn = DriverManager.getConnection(url, username, password);
+		
+		String sql = """
+				DROP TABLE BOARD
+				""";
+		
+		// Statement stmt = conn.createStatement();
+		// stmt.execute(sql);
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.execute();
+	}
+}

@@ -1,0 +1,91 @@
+!SESSION 2024-12-13 11:50:56.062 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=21.0.5
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-12-13 11:51:41.606
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.equinox.http.servlet 4 0 2024-12-13 11:53:09.759
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.equinox.http.servlet [1131]
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.equinox.http.servlet [osgi.identity; type="osgi.bundle"; version:Version="1.1.300.v20120522-1841"; osgi.identity="org.eclipse.equinox.http.servlet"] because it is exposed to package 'javax.servlet' from resources javax.servlet [osgi.identity; type="osgi.bundle"; version:Version="3.0.0.v201112011016"; osgi.identity="javax.servlet"] and org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.equinox.http.servlet [osgi.identity; type="osgi.bundle"; version:Version="1.1.300.v20120522-1841"; osgi.identity="org.eclipse.equinox.http.servlet"]
+    import: (&(osgi.wiring.package=javax.servlet)(&(version>=2.3.0)(!(version>=3.1.0))))
+     |
+    export: osgi.wiring.package: javax.servlet
+  javax.servlet [osgi.identity; type="osgi.bundle"; version:Version="3.0.0.v201112011016"; osgi.identity="javax.servlet"]
+
+Chain 2:
+  org.eclipse.equinox.http.servlet [osgi.identity; type="osgi.bundle"; version:Version="1.1.300.v20120522-1841"; osgi.identity="org.eclipse.equinox.http.servlet"]
+    import: (&(osgi.wiring.package=javax.servlet.annotation)(version>=2.6.0))
+     |
+    export: osgi.wiring.package: javax.servlet.annotation; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1909)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.equinox.jsp.jasper 4 0 2024-12-13 11:53:09.765
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.equinox.jsp.jasper [1132]
+  Unresolved requirement: Import-Package: org.apache.jasper.servlet; version="[0.0.0,6.0.0)"
+    -> Export-Package: org.apache.jasper.servlet; bundle-symbolic-name="org.apache.jasper.glassfish"; bundle-version="2.2.2.v201205150955"; version="2.2.2"
+       org.apache.jasper.glassfish [1106]
+         Unresolved requirement: Import-Package: javax.el; version="2.2.0"
+           -> Export-Package: javax.el; bundle-symbolic-name="javax.el"; bundle-version="2.2.0.v201108011116"; version="2.2.0"
+              javax.el [1092]
+                No resolution report for the bundle.         Unresolved requirement: Import-Package: javax.servlet.jsp.tagext; version="2.2.0"
+           -> Export-Package: javax.servlet.jsp.tagext; bundle-symbolic-name="javax.servlet.jsp"; bundle-version="2.2.0.v201112011158"; version="2.2.0"
+              javax.servlet.jsp [1095]
+                Unresolved requirement: Import-Package: javax.el; version="2.2.0"
+                  -> Export-Package: javax.el; bundle-symbolic-name="javax.el"; bundle-version="2.2.0.v201108011116"; version="2.2.0"
+         Unresolved requirement: Import-Package: javax.servlet.jsp.el; version="2.2.0"
+           -> Export-Package: javax.servlet.jsp.el; bundle-symbolic-name="javax.servlet.jsp"; bundle-version="2.2.0.v201112011158"; version="2.2.0"
+         Unresolved requirement: Import-Package: javax.servlet.jsp; version="2.2.0"
+           -> Export-Package: javax.servlet.jsp; bundle-symbolic-name="javax.servlet.jsp"; bundle-version="2.2.0.v201112011158"; version="2.2.0"
+  Unresolved requirement: Import-Package: javax.servlet.jsp; version="[2.0.0,2.3.0)"
+    -> Export-Package: javax.servlet.jsp; bundle-symbolic-name="javax.servlet.jsp"; bundle-version="2.2.0.v201112011158"; version="2.2.0"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.equinox.jsp.jasper [osgi.identity; type="osgi.bundle"; version:Version="1.0.400.v20120522-2049"; osgi.identity="org.eclipse.equinox.jsp.jasper"] because it is exposed to package 'javax.servlet' from resources javax.servlet [osgi.identity; type="osgi.bundle"; version:Version="3.0.0.v201112011016"; osgi.identity="javax.servlet"] and org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.equinox.jsp.jasper [osgi.identity; type="osgi.bundle"; version:Version="1.0.400.v20120522-2049"; osgi.identity="org.eclipse.equinox.jsp.jasper"]
+    import: (&(osgi.wiring.package=javax.servlet)(&(version>=2.4.0)(!(version>=3.1.0))))
+     |
+    export: osgi.wiring.package: javax.servlet
+  javax.servlet [osgi.identity; type="osgi.bundle"; version:Version="3.0.0.v201112011016"; osgi.identity="javax.servlet"]
+
+Chain 2:
+  org.eclipse.equinox.jsp.jasper [osgi.identity; type="osgi.bundle"; version:Version="1.0.400.v20120522-2049"; osgi.identity="org.eclipse.equinox.jsp.jasper"]
+    import: (&(osgi.wiring.package=javax.servlet.annotation)(version>=2.6.0))
+     |
+    export: osgi.wiring.package: javax.servlet.annotation; uses:=javax.servlet
+    export: osgi.wiring.package=javax.servlet
+  org.eclipse.jetty.servlet-api [osgi.identity; type="osgi.bundle"; version:Version="4.0.6"; osgi.identity="org.eclipse.jetty.servlet-api"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1909)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY ch.qos.logback.classic 1 0 2024-12-13 11:54:03.623
+!MESSAGE Logback config file: D:\dev\jdbcWorkspace\jdbcPrj11member+board\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-12-13 11:54:11.556
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\user1'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
