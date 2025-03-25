@@ -1,0 +1,54 @@
+h1{
+    background-color: red;
+}
+
+div[age="20"]{
+    background-color: green;
+}
+
+#test02 li {
+    background-color: grey;
+}
+
+#test03+div {
+    background-color: blue;
+}
+
+#test04-1:active {
+    color:blue;
+}
+
+#test04-2:hover {
+    background-color :cadetblue;
+}
+
+#test05-1:checked {
+    width: 100px;
+    height: 100px;
+}
+
+#test05-2:checked {
+    width: 100px;
+    height: 100px;
+}
+
+#test05-3:focus{
+    border : 3px dashed red;
+}
+
+#test05-3~input:enabled{
+    background-color: green;
+}
+
+#test06 > p:nth-child(odd) {
+    background-color: pink;
+}
+
+#test08 > p::after{
+    content:"zzzzzzzzzz";
+    background-color: orange;
+}
+
+#test09 > p:not(:nth-child(2)) {
+    background-color: brown;
+}

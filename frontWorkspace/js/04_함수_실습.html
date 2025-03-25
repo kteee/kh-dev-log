@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        table{
+            border: 3px solid blue;
+            font-size: large;
+        }
+
+        td {
+            text-align: right;
+            height: 40px;
+            border: 1px solid rgb(0, 0, 0);
+            font-weight: 900;
+        }
+
+        th{
+            border: 1px solid rgb(160, 160, 160);
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: rgb(243, 243, 243);
+        }
+        */
+
+        #cal{
+            width: 220px;
+            height: 325px;
+            display:grid;
+            grid-template-columns: repeat(4, 50px);
+            grid-template-rows: repeat(6, 50px);
+            border: 3px solid blue;
+            justify-content: center;
+            align-content: center;
+            gap:3px;
+        }
+
+        #cal > div:nth-child(1){
+            width: 100%;
+            height: 100%;
+            grid-column: span 4;
+            border: 1px solid black;
+            box-sizing: border-box;
+
+            display:flex;
+            align-items: center;
+            justify-content: end;
+
+            /* text-align: right;
+            vertical-align: middle;
+            line-height: 47px; */
+        }
+
+        #cal > div > button {
+            width: 50px;
+            height: 50px;
+            font-weight: bold;
+            box-sizing: border-box;
+        } 
+
+    </style>
+</head>
+<body>
+
+    <h1>함수 실습</h1>
+
+    <hr>
+
+    <h3>계산기 만들기 (내장 함수 사용)</h3>
+
+    <!-- 테이블로 만들기
+
+    <table border="1" >
+        <tr>
+            <td id="result" colspan="4">0</td>
+        </tr>
+        <tr>
+            <th onclick="cal(this.innerHTML)">(</th>
+            <th onclick="cal(this.innerHTML)">)</th>
+            <th onclick="cal(this.innerHTML)">%</th>
+            <th onclick="cal(this.innerHTML)">AC</th>
+        </tr>
+        <tr>
+            <th onclick="cal(this.innerHTML)">7</th>
+            <th onclick="cal(this.innerHTML)">8</th>
+            <th onclick="cal(this.innerHTML)">9</th>
+            <th onclick="cal(this.innerHTML)">/</th>
+        </tr>
+        <tr>
+            <th onclick="cal(this.innerHTML)">4</th>
+            <th onclick="cal(this.innerHTML)">5</th>
+            <th onclick="cal(this.innerHTML)">6</th>
+            <th onclick="cal(this.innerHTML)">*</th>
+        </tr>
+        <tr>
+            <th onclick="cal(this.innerHTML)">1</th>
+            <th onclick="cal(this.innerHTML)">2</th>
+            <th onclick="cal(this.innerHTML)">3</th>
+            <th onclick="cal(this.innerHTML)">-</th>
+        </tr>
+        <tr>
+            <th onclick="cal(this.innerHTML)">0</th>
+            <th onclick="cal(this.innerHTML)">*</th>
+            <th onclick="cal(this.innerHTML)">=</th>
+            <th onclick="cal(this.innerHTML)">+</th>
+        </tr>
+    </table>
+    -->
+
+    <!-- 그리드로 만들기 -->
+
+    <div id="cal">
+        <div id="result" onclick="cal(this.innerHTML)">0</div>
+        <div><button onclick="cal(this.innerHTML)">(</button></div>
+        <div><button onclick="cal(this.innerHTML)">)</button></div>
+        <div><button onclick="cal(this.innerHTML)">%</button></div>
+        <div><button onclick="cal(this.innerHTML)">AC</button></div>
+        <div><button onclick="cal(this.innerHTML)">7</button></div>
+        <div><button onclick="cal(this.innerHTML)">8</button></div>
+        <div><button onclick="cal(this.innerHTML)">9</button></div>
+        <div><button onclick="cal(this.innerHTML)">/</button></div>
+        <div><button onclick="cal(this.innerHTML)">4</button></div>
+        <div><button onclick="cal(this.innerHTML)">5</button></div>
+        <div><button onclick="cal(this.innerHTML)">6</button></div>
+        <div><button onclick="cal(this.innerHTML)">*</button></div>
+        <div><button onclick="cal(this.innerHTML)">1</button></div>
+        <div><button onclick="cal(this.innerHTML)">2</button></div>
+        <div><button onclick="cal(this.innerHTML)">3</button></div>
+        <div><button onclick="cal(this.innerHTML)">-</button></div>
+        <div><button onclick="cal(this.innerHTML)">0</button></div>
+        <div><button onclick="cal(this.innerHTML)">.</button></div>
+        <div><button onclick="cal(this.innerHTML)">=</button></div>
+        <div><button onclick="cal(this.innerHTML)">+</button></div>
+    </div>
+
+    <script>
+        let result = document.querySelector("#result");
+
+        function cal(button) {
+            if(button === "AC") {
+                result.innerHTML = 0;
+                return;
+            }
+            else if(button == "=") {
+                const str = result.innerHTML;
+                result.innerHTML = eval(str);
+                return;
+            }
+            else {
+                if(result.innerHTML == "0") {
+                    result.innerHTML = button;
+                    return;
+                }
+                result.innerHTML += button;
+            }
+        }
+    </script>
+
+</body>
+</html>

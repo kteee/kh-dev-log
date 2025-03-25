@@ -1,0 +1,31 @@
+body{
+    margin:0;
+    background-color: lightgray;
+    width: 100vm;
+    height: 100vh;
+}
+
+ul {
+    margin:0;
+    padding:0;
+}
+
+aside{
+    background-color: red;
+    width: 300px;
+    height: 100vh;
+    transition:0.5s;
+    margin-left: -200px;
+}
+
+/* aside:hover{
+    margin-left: 0px;
+} */
+
+aside.active{
+    margin-left: 0px;
+}  
+
+.box{
+    border: 1px solid black;
+}

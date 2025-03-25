@@ -1,0 +1,194 @@
+.box {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+}
+
+#fixed-size {
+    width:100%;
+    height: 300px;
+}
+
+.display-test {
+    background-color:rgba(202, 241, 241, 0.575);
+    width: 100px;
+    height:100px;
+    display:block;
+}
+
+.d-test{
+    background-color: rgba(195, 191, 231, 0.808);
+    width: 100px;
+    height:100px;
+    display:inline;
+}
+
+.div-box{
+    width:100px;
+    height:100px;
+    background-color: aquamarine;
+    display: inline-block;
+}
+
+#border-test1 {
+    /*
+    border-width: 3px;
+    border-style: dashed;
+    border-color: blue;
+    */
+
+    /* border: 3px dashed blue; */
+
+    border-style: none;
+    border-width: 30px;
+    box-shadow: 3px 3px 3px lightgray;
+}
+
+#border-test2 {
+    border-style: hidden;
+    border-width: 30px;
+    box-shadow: 3px 3px 3px lightgray;
+}
+
+#border-test3 {
+    border-style: dashed;
+    border-width: 10px;
+}
+
+#border-test4 {
+    border-style: dotted;
+    border-width: 10px;
+}
+
+#border-test5 {
+    border-style: double;
+    border-width: 10px;
+}
+
+#border-test6 {
+    border-style: groove;
+    border-width: 10px;
+}
+
+#border-test7 {
+    border-style: inset;
+    border-width: 10px;
+}
+
+#border-test8 {
+    border-style: outset;
+    border-width: 10px;
+}
+
+#border-test9 {
+    border-style: ridge;
+    border-width: 10px;
+}
+
+#border-test10 {
+
+    /*
+    아래처럼 따로따로 설정 가능
+
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+
+    border-top-width: 30px;
+    border-bottom-width: 30px;
+    border-left-width: 20px;
+    border-right-width: 20px;
+
+    border-top-color: red;
+    border-bottom-color: red;
+    border-left-color: blue;
+    border-color-color: blue;
+
+    2개씩 설정도 가능 (top+bottom / left+right)
+    border-color: red blue;
+    */
+
+    border-style: solid;
+    border-width: 10px;
+    border-color: red blue;
+}
+
+.space{
+    background-color: rgb(76, 116, 129, 0.3); 
+    display:inline-block;
+    width:100px;
+    height:100px;
+    padding :50px;
+}
+
+#wrap {
+    width: 500px;
+    height: 500px;
+    border : 5px dotted orange;
+    position: relative; 
+}
+
+#wrap > div{
+    border:3px dashed black;
+}
+
+#wrap > div:nth-child(1){
+    background-color: rgba(255, 0, 0, 0.219);
+    width: 100px;
+    height: 100px;
+}
+
+#wrap > div:nth-child(2){
+    background-color: rgba(0, 128, 0, 0.26);
+    width: 100px;
+    height: 100px;
+    /* position: relative;
+    bottom: 70px; 
+    left: 40px; 
+    z-index:1; */
+
+    /* visibility: hidden; */
+    display: none;
+}
+
+#wrap > div:nth-child(3){
+    background-color: rgba(0, 0, 255, 0.205);
+    width: 100px;
+    height: 100px;
+    /* position: relative;
+    bottom: 140px; 
+    left: 80px; 
+    z-index:2; */
+}
+
+#outer {
+    background-color: bisque;
+    width: 500px;
+    height: 500px;
+}
+
+#outer > div {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+
+    float:left;
+}
+
+table {
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+    empty-cells: hide;
+    border-collapse: collapse;
+    /* border-spacing: 30px 20px; */
+
+}
+
+td {
+    border: 1px solid blue;
+    font-weight: 900;
+    text-align: center;
+    vertical-align: top;
+}

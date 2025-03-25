@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 관리 프로그램</title>
+</head>
+<body>
+
+    <h1>리스트</h1>
+    
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+    // 제이쿼리 말고 순수 js함수로 비동기통신하기
+
+    fetch("http://127.0.0.1:8080/book/list" , {
+            method : "GET" ,
+    })
+    .then( (x)=>{  // 통신 성공시 동작
+        console.log("통신성공!!") 
+        console.log(x); // x는 response 객체
+        // const voList = x.json();
+        // console.log(voList);
+        return x.json();   // 데이터 읽어들임,, promise 객체 리턴함
+    } )
+    .then( (data)=>{
+        console.log(data);
+    } )
+    .catch( ()=>{  // 통신 실패시 동작 
+        console.log("통신실패..")
+    } ) 
+    ;
+
+    // $.ajax({
+    //     url : "http://127.0.0.1:8080/book/list" , 
+    //     method : "GET" ,
+    //     success : function(x){
+    //         console.log("통신성공!!");
+    //         console.log("x : ", x)
+    //     } ,
+    //     error : function() {
+    //         console.log("통신실패..");
+    //     }
+    // });
+</script>

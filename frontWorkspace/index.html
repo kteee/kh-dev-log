@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>메인화면</h1>
+
+    <script>
+        localStorage.setItem("nick", "dragon");
+        const x = localStorage.getItem("nick");
+        console.log(x);
+        localStorage.removeItem("nick");
+        // localStorage.clear(); // 모든 데이터 지우기
+        console.log(localStorage.length); // 길이 구하기
+    </script>
+
+    ID <input type="text" id="userId" placeholder="USER ID">
+</body>
+</html>

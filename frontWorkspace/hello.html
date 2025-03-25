@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습장</title>
+    <link rel="stylesheet" href="./hello.css">
+    <!-- 
+        요소 만들어진 후 script 실행되어야 js가 정상 작동함
+        그래서 defer 넣어서 나중에 <script>가 실행되도록 함
+        (아니면 body 젤 아래에 두던지..)
+     -->
+    <script defer src="/hello.js"></script>
+</head>
+<body>
+    
+    <h1>연습장</h1>
+
+    <ul>
+        <li>프로그래밍언어</li>
+            <ul id="sub01">
+                <li>JAVA</li>
+                <li>C++</li>
+                <li>PYTHON</li>
+            </ul>
+        
+        <li>데이터베이스 </li>
+            <ul id="sub02">
+                <li>ORACLE</li>
+                <li>POSTGRESQL</li>
+                <li>MYSQL</li>
+            </ul>
+    </ul>
+
+
+
+    <label for="a">게임</label>
+    <input type="checkbox" id="a">
+    <label>등산 <input type="checkbox"></label>
+    <label>낚시 <input type="checkbox"></label>
+    <br>
+    <label>코딩 <input type="checkbox"></label>
+    <label>개발 <input type="checkbox"></label>
+    <label>요리 <input type="checkbox"></label>
+
+    <br><br>
+
+    <label for="x">💖</label>
+    <input type="checkbox" id="x">
+    <h2>안녕</h2>
+
+    <br><br>
+
+    별점 매기기
+
+    <div class="star-rating">
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5" title="5 stars">★</label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4" title="4 stars">★</label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3" title="3 stars">★</label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2" title="2 stars">★</label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1" title="1 star">★</label>
+    </div>
+      
+    <br><br>
+
+    <div class="box" id="target" atk="30" hp="100" kh="korea-hello">
+        디브
+        <span>디브안의 span</span>
+    </div>
+    
+    
+
+
+
+</body>
+</html>

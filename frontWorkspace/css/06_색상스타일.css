@@ -1,0 +1,22 @@
+#target{
+    width: 500px;
+    height: 500px;
+    background-color: rgba(176, 196, 222, 0.747);
+    /* background-color: #00FF00; */
+
+    background-image: url("/resources/img/long.png");
+
+    /* background-repeat: repeat;
+    background-repeat: repeat-x;
+    background-repeat: repeat-y; */
+
+    background-repeat: no-repeat; 
+
+    /* background-size:auto; */
+    background-size:contain; 
+    background-size:cover;
+    background-size:300px 600px;
+    background-size:50% 50%;
+    background-position: 33% 33%;
+}
+

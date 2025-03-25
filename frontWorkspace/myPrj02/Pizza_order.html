@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+    <link rel="stylesheet" href="/myPrj/Pizza_order.css">
+</head>
+<body>
+    
+    <div id="outer">
+        <div id="header-area">
+            <div>
+                🍕 PIZZA
+            </div>
+            <div>
+                <div><a href="" class="menu-link01">메뉴</a></div> 
+                <div><a href="" class="menu-link01">주문하기</a></div>
+                <div><a href="" class="menu-link01">매장찾기</a></div>
+            </div>
+            <div>
+                <div><a href="" class="menu-link02">로그인</a></div>
+                <div><a href="" class="menu-link02">장바구니</a></div>
+            </div>
+        </div>
+
+
+        <div id="content-area">
+            <div id="order-area">
+                <div>주문하기</div>
+                <div>
+                    <form>
+                        <div class="order-type">01. 주문 정보</div>
+                        <div id="order-info01">
+                            <div>주문 메뉴</div>
+                            <div><select class="selectbox">
+                                <option>쉬림프 골드</option>
+                                <option>하프앤하프</option>
+                                <option>포테이토 골드</option>
+                                <option>치즈 스테이크</option>
+                            </select></div>
+                            <div>사이즈 선택</div>
+                            <div><input type="radio" name="size"> M &nbsp;
+                                <input type="radio" name="size"> L</div>
+                            <div>도우&엣지 선택</div>
+                            <div><select class="selectbox">
+                                <option>오리지널 엣지</option>
+                                <option>리치골드 엣지(+4,000원)</option>
+                                <option>치즈크러스트 골드(+5,000원)</option>
+                            </select></div>
+                            <div>토핑 추가</div>
+                            <div><input type="checkbox" name="topping">&nbsp;페페로니(500원)&nbsp; &nbsp;
+                                <input type="checkbox" name="topping">&nbsp;블랙올리브(500원) &nbsp;&nbsp;
+                                <input type="checkbox" name="topping">&nbsp;양송이(500원) &nbsp;&nbsp;
+                                <input type="checkbox" name="topping">&nbsp;베이컨(1,000원) &nbsp;&nbsp;
+                                <input type="checkbox" name="topping">&nbsp;체다치즈(1,000원) &nbsp;&nbsp;
+                            </div>
+                            <div>피자 수량</div>
+                            <div><input type="number" id="numberbox"></div>
+                        </div>
+                        <br>
+                            <div class="order-type">02. 주문자 정보</div>
+                            <div id="order-info02">
+                                <div>고객명</div>
+                                <div>
+                                    <input type="text">
+                                </div>
+                                <div>배달 주소</div>
+                                <div><input type="text" id="addressinput">&nbsp;&nbsp;<input type="button" value="주소검색" id="addressbutton"></div> 
+                                <div>연락처</div>
+                                <div><input type="text" placeholder="핸드폰 번호를 입력해주세요."></div>
+                                <div>배달 예정 시간</div>
+                                <div><input type="time"></div>
+                                <div>요청사항</div>
+                                <div><textarea></textarea></div>
+
+                            </div>
+                            <div id="total-price">총 주문금액 &nbsp;<span>35,900원</span></div>
+                            <div id="ordermenu"><input type="submit" value="주문하기"></div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            
+        </div>
+       
+    </div>
+    <br><br><br><br><br>
+</body>
+</html>

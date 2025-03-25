@@ -1,0 +1,250 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#outer{
+    width:100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 83px 1fr;
+    place-items: center center;
+
+}
+
+#header-area{
+    width:1280px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 150px 1fr 300px;
+    grid-template-rows: 1fr;
+}
+
+.menu-link01, .menu-link02{
+    text-decoration: none;
+    color: rgb(34, 34, 34);;
+}
+
+.menu-link01:hover{
+    text-decoration : underline;
+    text-underline-position : under;
+    text-decoration-color: rgba(73, 73, 73, 0.938);
+    text-decoration-thickness: 2px;
+}
+
+
+#header-area>div:nth-child(1) {
+    font-family:'Ebrima';
+    font-size: 27px;
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+    place-self: center start;
+}
+
+#header-area>div:nth-child(2) {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgb(34, 34, 34);
+    display: flex;
+    align-self: center;
+}
+  
+#header-area>div:nth-child(2)>div {
+    padding-left: 60px;
+    padding-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#header-area>div:nth-child(3) {
+    font-size: 14px;
+    color: rgb(70, 70, 70);
+    display: flex;
+    align-self: center;
+    justify-self: flex-end;
+}
+
+#header-area>div:nth-child(3)>div {
+    padding-left: 16px;
+}
+
+#content-area {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-top: 1px solid rgb(211, 211, 211);
+}
+
+#order-area {
+    width: 1280px;
+    height: 1200px; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr;
+    margin: 0 auto;
+    place-items: center start;
+}
+
+#order-area>div:nth-child(1) {
+    width: 1280px;
+    margin-top: 55px;
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+
+#order-area>div:nth-child(2) {
+    width: 1280px;
+    height: 1100px;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 10px;
+}
+
+.order-type{
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 40px;
+    margin-top: 30px;
+    
+}
+
+#order-info01{
+    margin-left: 40px;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+#order-info01>div{
+    width: 1020px;
+    height: 70px;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    display: flex;
+    justify-content:start;
+    align-items:center;
+}
+
+#order-info01>div:nth-child(odd){
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.selectbox{
+    font-size: 17px;
+    padding-right: 60px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid rgb(161, 161, 161);
+}
+
+#numberbox{
+    font-size: 17px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+}
+
+#order-info02{
+    margin-left: 40px;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+#order-info02>div{
+    width: 1020px;
+    height: 70px;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    display: flex;
+    justify-content:start;
+    align-items:center;
+}
+
+#order-info02>div:nth-child(odd){
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+#order-info02>div:nth-child(2)>input {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 17px;
+    padding-left: 8px;
+}
+
+#addressinput {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 17px;
+    padding-left: 8px;
+    padding-right: 200px;
+}
+
+#addressbutton {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 85px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.623);
+    border-radius: 5px;
+    border:1px solid rgb(141, 141, 141);
+    color:rgb(46, 46, 46);
+}
+
+#order-info02>div:nth-child(6)>input {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 17px;
+    padding-left: 8px;
+    padding-right: 10px;
+}
+
+#order-info02>div:nth-child(8)>input {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 17px;
+    padding-left: 8px;
+
+}
+
+#order-info02>div:nth-child(10)>textarea {
+    width: 800px;
+    font-size: 14px;
+}
+
+#total-price{
+    text-align: right;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#total-price>span{
+    text-align: right;
+    margin-right: 50px;
+    font-size: 34px;
+    font-weight: 600;
+    color:rgba(233, 52, 7, 0.938);
+}
+
+#ordermenu{
+    margin-top: 30px;
+    text-align: right;
+    margin-right: 50px;
+}
+
+#ordermenu>input{
+    width: 190px;
+    height: 55px;
+    background-color: rgba(250, 81, 38, 0.938);
+    box-shadow:  0 0 2px #ee1212;
+    color: white;
+    font-weight: 600;
+    border: none;
+    font-size: 27px;
+    border-radius: 10px;
+}

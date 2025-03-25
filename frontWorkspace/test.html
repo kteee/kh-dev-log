@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인사관리 - 사내 ERP 시스템</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .header {
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .menu-item {
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        .menu-item:hover {
+            background-color: #34495e;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .employee-list {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .add-employee {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .add-employee input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .add-employee button {
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>ERP 메뉴</h2>
+            <div class="menu-item">대시보드</div>
+            <div class="menu-item">인사관리</div>
+            <div class="menu-item">재무관리</div>
+            <div class="menu-item">프로젝트 관리</div>
+            <div class="menu-item">보고서</div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>인사관리</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="직원 검색...">
+                <button>검색</button>
+            </div>
+            <div class="employee-list">
+                <h2>직원 목록</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>이름</th>
+                            <th>부서</th>
+                            <th>직책</th>
+                            <th>입사일</th>
+                            <th>이메일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>개발팀</td>
+                            <td>선임 개발자</td>
+                            <td>2020-03-15</td>
+                            <td>hong@company.com</td>
+                        </tr>
+                        <tr>
+                            <td>김철수</td>
+                            <td>마케팅팀</td>
+                            <td>팀장</td>
+                            <td>2018-07-01</td>
+                            <td>kim@company.com</td>
+                        </tr>
+                        <tr>
+                            <td>이영희</td>
+                            <td>인사팀</td>
+                            <td>매니저</td>
+                            <td>2019-11-20</td>
+                            <td>lee@company.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="add-employee">
+                <h2>새 직원 추가</h2>
+                <input type="text" placeholder="이름">
+                <input type="text" placeholder="부서">
+                <input type="text" placeholder="직책">
+                <input type="date" placeholder="입사일">
+                <input type="email" placeholder="이메일">
+                <button>직원 추가</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>프로미스 연습</h1>
+
+</body>
+</html>
+
+<script>
+
+    new Promise( (resolve, reject)=>{
+        const num = prompt("숫자를 입력하요");
+        if (num > 0) {
+            resolve(num);
+        } 
+        else {
+            reject();
+        }
+    } )
+    .then( (num)=>{
+        console.log("양수입니다. ");
+        return num;
+
+    } )  // 자바 스크립트에서 예외 발생시키기
+    .then( (num)=>{
+        console.log(num);
+        throw new Error("예외발생ㅋㅋ;;;");
+    } ) 
+    .catch( (num)=>{
+        console.log("음수입니다.");
+        console.log(num);
+    } );
+
+
+</script>

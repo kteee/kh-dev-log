@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 관리 프로그램</title>
+</head>
+<body>
+
+    <h1>인서트</h1>
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+    // fetch ("url", 객체) 두개의 인자를 넣을 수 있다
+
+    fetch("http://127.0.0.1:8080/book/write" , {
+        method : "POST" ,
+        headers : {
+            'Content-Type': 'application/json'
+        } , 
+        body : JSON.stringify({
+            title : '반지의제왕왕' ,
+            price : 150000 ,
+            writer : '홍길동이' , 
+            publishedDate : '2022-10-10'
+        }),
+    }).then( (resp)=>{
+        return resp.json();
+    } ).then( (data)=>{
+        console.log(data);
+    } ).catch( ()=>{    // 실패했을 때
+
+    } ).finally( ()=>{  // 성공, 실패 상관없이 무조건 실행
+
+    } )
+    ;
+
+    // $.ajax({
+    //     url : "http://127.0.0.1:8080/book/write" , 
+    //     method : "POST" ,
+    //     data : {
+    //         title : '해리포터333' ,
+    //         price : 15000,
+    //         writer : '홍길동', 
+    //         publishedDate : '2022-10-10'
+    //     } ,
+    //     success : function(x){
+    //         console.log("통신성공!!");
+    //         console.log("x : ", x)
+    //     } ,
+    //     error : function() {
+    //         console.log("통신실패..");
+    //     }
+    // });
+
+</script>

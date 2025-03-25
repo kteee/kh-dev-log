@@ -1,0 +1,113 @@
+#ff1 {
+    font-family: "궁서체";
+}
+
+#ff2 {
+    font-family: "굴림체";
+}
+
+#ff3 {
+    font-family: "용용체", "궁서체";
+}
+
+#fs1 {
+    font-size: 32px;
+}
+
+#fs2 {
+    font-size: 200%;
+}
+
+#fs3 {
+    font-size: 2em;
+}
+
+#fw1 {
+    font-weight: 900;
+}
+
+#fw2 {
+    font-weight: 100;
+}
+
+#fstyle1 {
+    font-style: italic;
+}
+
+#fstyle2 {
+    font-style: oblique;
+}
+
+#txt-deco1 {
+    text-decoration: overline;
+}
+
+#txt-deco2 {
+    text-decoration: line-through;
+}
+
+#txt-deco3 {
+    text-decoration: underline;
+}
+
+#txt-deco4 > a {
+    text-decoration: none;
+    color:black;
+}
+
+#tt1 {
+    text-transform: none;
+}
+
+#tt2 {
+    text-transform:capitalize;
+}
+
+#tt3 {
+    text-transform:uppercase;
+}
+
+#tt4 {
+    text-transform:lowercase;
+}
+
+#bg {
+    background-color:beige;
+    margin:30px;
+    padding:50px;
+}
+
+#ts {
+    font-size:100px;
+    font-weight: 900;
+    text-shadow: 10px 10px 5px grey, 
+                -10px -10px 10px blue;
+}
+
+#ls {
+    /* letter-spacing: 10px; */
+    /* word-spacing:10px ; */
+    /* text-align:justify; */
+    line-height: 50px;
+}
+
+.box{
+    background-color:blanchedalmond;
+    width: 500px;
+}
+
+#to {
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+#lst {
+    /* 
+    list-style-type:square;
+    list-style-position: outside; 
+    */
+    
+    list-style-type: lower-roman;
+
+    /* list-style-image: url(~~~); */
+}

@@ -1,0 +1,25 @@
+#target{
+    width:100px;
+    height: 100px;
+    background-color: gray;
+}
+
+/* PC 사이즈 */
+@media (max-width:1920px){
+    #target{
+        background-color: red;
+    }
+}
+
+/* 태블릿 사이즈 */
+@media (max-width:1023px){ 
+    #target{
+        background-color: blue;
+    }
+}
+/* 모바일 사이즈*/
+@media (max-width:767px){
+    #target{
+        background-color: green;
+    }
+}

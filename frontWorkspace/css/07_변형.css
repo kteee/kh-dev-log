@@ -1,0 +1,30 @@
+#star01:hover{
+    /* transform:translate(100px, 100px); */
+    /* transform:scale(0.5,2) */
+    /* transform:rotate(30deg) */
+    transform: skew(20deg,30deg);
+}
+
+#star02:hover{
+    /* transform: perspective(300px) translateZ(-100PX); */
+    transform: perspective(300px) translate3d(50px, 50px, 100px);
+
+}
+
+#star03:hover{
+    /* transform: perspective(300px) rotate3d(1, 1, 1, 30deg); */
+    /* transform-origin: right top;
+    transform: rotate(30deg); */
+
+    /* backface */
+    transform:rotateY(120deg);
+    backface-visibility: visible;
+}
+
+.insta {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    /* border-radius:50px */
+    border-top-left-radius: 30px;
+}

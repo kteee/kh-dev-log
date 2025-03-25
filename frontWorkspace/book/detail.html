@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 관리 프로그램</title>
+</head>
+<body>
+
+    <h1>디테일</h1>
+    
+</body>
+</html>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $.ajax({
+        url : "http://127.0.0.1:8080/book/detail" , 
+        method : "GET" ,
+        data : {
+            no : 4
+        } ,
+        success : function(x){
+            console.log("통신성공!!");
+            console.log("x : ", x)
+        } ,
+        error : function() {
+            console.log("통신실패..");
+        }
+    });
+</script>
