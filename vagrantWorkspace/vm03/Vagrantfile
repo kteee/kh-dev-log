@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/focal64"
+
+  config.vm.network "forwarded_port", guest: 80, host: 8765
+  
+  # config.vm.synced_folder "D:\dev\final" , "/home/user01/final/src"
+
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   sudo apt-get update
+  #   sudo apt-get install -y openjdk-17-jdk
+  # sudo apt-get install -y apache2
+  # SHELL
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
+
+end
