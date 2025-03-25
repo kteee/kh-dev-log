@@ -1,0 +1,289 @@
+@CHARSET "UTF-8";
+
+body {
+    margin: 0;
+    font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+#outer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 90px 1fr 200px;
+}
+
+header {
+    border-bottom: 1px solid rgb(211, 211, 211);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header > div {
+    width: 1150px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+header > div > div:nth-child(1) {
+    font-size: 35px;
+    font-weight: 600;
+    cursor: pointer;
+    padding-left: 50px;
+}
+
+header > div > div > input {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 15px;
+    padding-left: 18px;
+    padding-right: 70px;
+    width: 460px;
+    border: 1px solid rgb(139, 139, 139);
+    border-radius: 20px;
+}
+
+header > div > div > button {
+    position: relative;
+    right:62px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(238, 238, 238);
+    cursor: pointer;
+    padding: 4px 9px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+header > div > div > button:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+header > div > div:nth-child(3) {
+    padding-right: 50px;
+}
+
+header > div > div:nth-child(3) > span {
+    font-size: 14px;
+    margin-left: 9px;
+    color: rgb(37, 37, 37);
+    cursor: pointer;
+}
+
+main {
+    background-color: rgb(250, 250, 250);
+}
+
+main > div {
+    background-color: rgb(250, 250, 250);
+    width: 1150px;
+    height: 100%;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 258px 1fr;
+}
+
+#location-theme-area {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    padding: 20px 50px;
+    box-shadow: 0px 0px 1px rgb(160, 160, 160);
+}
+
+#location-theme-area > div:nth-child(1) {
+    margin-top: 4px;
+    height: 50px;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+#location-theme-area > div:nth-child(2) {
+    margin-top: 5px;
+    height: 40px;
+}
+
+#location-theme-area > div:nth-child(2) > span {
+    padding: 4px 13px;
+    border-radius: 20px;
+    margin-right: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#location-theme-area > div:nth-child(3) {
+    height: 98px;
+}
+
+.selected {
+    background-color: rgb(247, 111, 77);
+    color:rgb(255, 255, 255);
+    box-shadow: 0px 0px 2px rgb(247, 111, 77);
+}
+
+.non-selected {
+    border: 1px solid rgb(211, 211, 211);
+}
+
+
+#location-theme-list > div{
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#location-theme-list > div > div {
+    width: 68px;
+    height: 65px;
+    border: 1px solid rgb(240, 240, 240);
+    background-color: rgb(247, 247, 247);
+    border-radius: 35px;
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+#location-theme-list > div> div:hover {
+    background-color:#faf1ef;
+    border: 1px solid  rgb(252, 163, 140);
+    font-weight: 500;
+
+}
+
+#location-theme-list > .hidden-area {
+    display: none;
+}
+
+#list-area {
+    margin-bottom: 35px;
+    background-color: white;
+    padding: 20px 50px;
+    box-shadow: 0px 0px 1px rgb(160, 160, 160);
+}
+
+#list-area>div:nth-child(1)>div:nth-child(1) {
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+#viewlist {
+    display:grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 50px 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-type {
+    margin: 8px;
+}
+
+.filter {
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.filter > div {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(242, 242, 242);
+    border-radius: 12px;
+    padding: 4px 10px;
+    font-size: 15px;
+}
+
+#list-area>div:nth-child(2) {
+    text-align: right;
+    margin-right : 15px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.restaurant-list-area{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 415px 415px;
+}
+
+.restaurant-list-area > div{
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    margin-right: 16px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 5px;
+
+}
+
+.restaurant-list-area >div>div>img{
+    width: 100%;
+    height: 230px;
+    border-radius: 10px;
+}
+
+.restaurant-list-area >div>div:nth-child(2){
+    font-size: 18px;
+    margin-top: 9px;
+    margin-bottom: 7px;
+   
+}
+
+.restaurant-list-area >div>div:nth-child(3){
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.restaurant-list-area >div>div:nth-child(4){
+    font-size: 14px;
+    color: rgb(82, 82, 82);
+    margin-bottom: 3px;
+}
+
+.restaurant-list-area >div>div:nth-child(5){
+    font-size: 14px;
+    color: rgb(82, 82, 82);
+}
+
+#list-area>div:nth-child(5) {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#list-area>div:nth-child(5) > div {
+    color: white;
+    width: 520px;
+    height: 40px;
+    background-color: rgb(247, 111, 77);
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    margin: 0 auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.restaurant-list-tag {
+    color:rgb(247, 111, 77);
+    font-weight: 600;
+}
+
+.restaurant-list-area.hidden-list{
+    display:none;
+}
+
+.restaurant-star {
+    color:rgb(255, 219, 61);
+}

@@ -1,0 +1,23 @@
+package bbb;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/board/insert")
+public class BoardInsertController {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// view page (화면을 보여주는 작업)
+		req.getRequestDispatcher("/WEB-INF/views/board/insert.jsp").forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// process data (데이터를 처리하는 작업)
+
+	}
+}

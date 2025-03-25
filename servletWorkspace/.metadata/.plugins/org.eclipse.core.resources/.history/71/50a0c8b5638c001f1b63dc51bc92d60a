@@ -1,0 +1,214 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/home.css" type="text/css">
+</head>
+<body>
+   <div id="outer">
+        <header>
+            <div>
+                <div onclick="home();">🍝 logo</div>
+                <div><input type="text" id="searchbox" placeholder="지역 또는 가게명 입력"><button onclick="search();">검색</button></div>
+                <div>
+                    <span>로그인</span> 
+                    <span onclick="mypage();">마이페이지</span>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div>
+                <div id="location-theme-area">
+                    <div>
+                        <span>지역 · 테마별 인기 맛집</span>
+                    </div>
+                    <div>
+                        <!-- label 이용해서 만들려면???? -->
+                        <span id="location" class="selected" onclick="selectlocation();">지역</span>
+                        <span id= "theme" class="non-selected" onclick="selecttheme();">테마</span>
+                    </div>
+                    <div>
+                        <div id="location-theme-list">
+                            <div id="location-list" class = "show-area">
+                                <div>홍대</div>
+                                <div>성수</div>
+                                <div>명동</div>
+                                <div>연남</div>
+                                <div>건대</div>
+                                <div>강남</div>
+                                <div>여의도</div>
+                                <div>을지로</div> 
+                                <div>이태원</div> 
+                                <div>부산</div> 
+                                <div>제주도</div> 
+                            </div>
+                            <div id="theme-list" class="hidden-area">
+                                <div>웨이팅<br>TOP</div>
+                                <div>히든<br>플레이스</div>
+                                <div>데이트<br>맛집</div>
+                                <div>화제의<br>예능</div>
+                                <div>다이닝</div>
+                                <div>하이볼</div>
+                                <div>스시<br>오마카세</div>
+                                <div>우마카세</div> 
+                                <div>디저트</div> 
+                                <div>팝업<br>스토어</div> 
+                                <div>이달의<br>맛집</div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="list-area">
+                    <div>
+                        <div>내 지역 근처 맛집 찾기</div>
+                        <div id="viewlist">
+                            <div class="filter-type">지역</div>
+                            <div id="location-filter" class="filter">
+                                <div>전체</div>
+                                <div>서울</div>
+                                <div>인천</div>
+                                <div>경기</div>
+                                <div>강원</div>
+                                <div>충북</div>
+                                <div>충남</div>
+                                <div>부산</div>
+                                <div>대구</div>
+                                <div>울산</div>
+                                <div>전북</div>
+                                <div>전남</div>
+                                <div>제주도</div>
+                                <div>더보기</div>
+                            </div>
+                            <div class="filter-type">구분</div>
+                            <div id="other-filter" class="filter">
+                                <div>전체</div>
+                                <div>한식</div>
+                                <div>분식</div>
+                                <div>일식</div>
+                                <div>중식</div>
+                                <div>파인다이닝</div>
+                                <div>코스요리</div>
+                                <div>프랑스음식</div>
+                                <div>이탈리아음식</div>
+                                <div>베트남음식</div>
+                                <div>멕시코음식</div>
+                                <div>더보기</div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div>
+                            <select>
+                                <option>최신순</option>
+                                <option>별점순</option>
+                                <option>리뷰많은순</option>
+                            </select>
+                    </div>
+
+                        <div class="restaurant-list-area show-list">
+                            <div>
+                                <div><img src="../resources/img/restaurant01.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">1 </span>식당네오</div>
+                                <div><span class="restaurant-star">★</span> 4.9 (641) </div>
+                                <div>#룸 #노키즈존 #단체이용가능</div>
+                                <div>잠실 · 일식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant02.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">2 </span>트리드</div>
+                                <div><span class="restaurant-star">★</span> 4.7 (667) </div>
+                                <div>#주차가능 #발렛가능 #콜키지가능</div>
+                                <div>청담 · 코스요리</div>
+
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant03.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">3 </span>도량</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (223)</div>
+                                <div>#대기공간 #주차가능 #콜키지가능</div>
+                                <div>서촌 · 중식</div>
+
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant04.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">4 </span>디핀</div>
+                                <div><span class="restaurant-star">★</span> 4.9 (1,032)</div>
+                                <div>#콜키지가능 #노키즈존 #대관가능</div>
+                                <div>신당 · 다이닝바</div>
+
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant05.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">5 </span>티엔미미</div>
+                                <div><span class="restaurant-star">★</span> 4.6 (182) </div>
+                                <div>#단체이용가능 #무선인터넷</div>
+                                <div>홍대 · 중식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant06.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">6 </span>네기</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (447) </div>
+                                <div>#주차가능 #콜키지가능 #홀</div>
+                                <div>성수 · 일식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant07.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">7 </span>홍보각</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (317) </div>
+                                <div>#주차가능 #룸 #웰컴키즈존</div>
+                                <div>강남 · 중식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant08.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">8 </span>윤서울</div>
+                                <div><span class="restaurant-star">★</span> 4.7 (329) </div>
+                                <div>#콜키지가능 #대관가능 </div>
+                                <div>압구정로데오 · 한식</div>
+                            </div>
+                        </div>
+                        <div class="restaurant-list-area hidden-list">
+                            <div>
+                                <div><img src="../resources/img/restaurant09.png.png"></div>
+                                <div><span class="restaurant-list-tag">9 </span>포노부오노</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (245) </div>
+                                <div>#룸 #주차가능 #단체이용가능</div>
+                                <div>도산공원 · 이탈리아음식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant10.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">10 </span>쵸이닷</div>
+                                <div><span class="restaurant-star">★</span> 4.5 (2,061) </div>
+                                <div>#주차가능 #발렛가능 #콜키지가능</div>
+                                <div>청담 · 이탈리아음식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant11.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">11 </span>조광201</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (85)</div>
+                                <div>#콜키지가능 #홀 #단체이용가능</div>
+                                <div>문정 · 중식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant12.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">12 </span>본연</div>
+                                <div><span class="restaurant-star">★</span> 4.9 (103)</div>
+                                <div>#콜키지가능 #주차가능 #대관가능</div>
+                                <div>논현 · 한식</div>
+                            </div>
+                        </div>
+                        <div> 
+                            <div id="view-more" class="show-area" onclick="viewmore();"> 더보기 ▼ </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+package com.kh.app.common;
+
+public class ErrorController {
+
+}

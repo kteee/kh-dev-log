@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>에러 페이지</h1>
+	
+	<% 
+	// request라는 변수를 사용할 수 있는 이유 : jsp 안에 알아서 만들어져 있음
+	// 서블릿 -> 요청받는 순간 jsp->서블릿으로 변경됨
+	String x = (String)request.getAttribute("abc");
+	out.write("<h2>" + x + "</h2>"); 
+	%>
+</body>
+</html>

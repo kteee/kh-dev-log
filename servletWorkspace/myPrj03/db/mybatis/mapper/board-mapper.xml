@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardMapper">
+
+ <insert id="write">
+ 	INSERT INTO BOARD (
+   		NO
+    	, TITLE
+    	, CONTENT
+    	, WRITER_NO
+	) 
+	VALUES 
+	(
+    	SEQ_BOARD.NEXTVAL
+    	, #{title}
+    	, #{content}
+    	, #{writerNo}
+	)
+</insert>
+
+<select id="getBoardCount" resultType="int">
+  	SELECT COUNT(*)
+  	FROM BOARD
+  	WHERE DEL_YN = 'N'
+</select>
+
+<select id="list" resultType="BoardVo">
+	SELECT 
+		B.NO
+		, B.TITLE
+		, B.CONTENT
+		, B.WRITER_NO
+		, M.NICK			AS WRITER_NICK
+		, B.HIT
+		, B.ENROLL_DATE
+		, B.MODIFY_Date
+		, B.DEL_YN
+	FROM BOARD B
+	JOIN MEMBER M ON (B.WRITER_NO = M.NO)
+	WHERE B.DEL_YN = 'N'
+	ORDER BY B.NO DESC
+</select>
+
+<delete id="delete">
+	DELETE FROM BOARD
+	WHERE NO = #{no}
+</delete>
+
+</mapper>

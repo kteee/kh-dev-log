@@ -1,0 +1,60 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	nav{
+		display: grid;
+		grid-template-rows:1fr;
+		grid-template-columns:1fr 1fr 1fr 1fr;
+		width: 80vw;
+		height: 40px;
+		margin: auto;
+		border: 3px solid black;
+		background-color: gray;
+		color: white;
+		font-size: 2em;
+	}
+	nav > a {
+		text-decoration : none;
+	}
+</style>
+</head>
+<body>
+
+	<h1>홈페이지</h1>
+		
+	<nav>
+		<a href="/app/member/join">회원가입</a>
+		<a href="/app/member/login">로그인</a>
+		<a href="/app/board/write">게시글 작성</a>
+		<a href="/app/board/list">게시글 목록</a>
+	</nav>
+	
+	<hr>
+	
+	<table border="1">
+		<thead>
+			<tr>
+				<th>번호</td>
+				<th>제목</td>
+				<th>작성자</td>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${voList}" var="x">
+				<tr>
+					<td>${x.no }</td>
+					<td>${x.title }</td>
+					<td>${x.writerNo }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	
+</body>
+</html>

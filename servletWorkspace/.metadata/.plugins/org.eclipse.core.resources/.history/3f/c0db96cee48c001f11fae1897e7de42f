@@ -1,0 +1,7 @@
+package com.kh.app.member.controller;
+
+import javax.servlet.http.HttpServlet;
+
+public class MemberJoinViewController extends HttpServlet {
+
+}

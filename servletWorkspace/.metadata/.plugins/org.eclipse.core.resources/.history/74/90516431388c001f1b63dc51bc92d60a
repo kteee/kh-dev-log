@@ -1,0 +1,33 @@
+package test;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/join/view")
+public class JoinViewController extends HttpServlet{
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		PrintWriter out = resp.getWriter();
+		out.write("<!DOCTYPE html>");
+		out.write("<html lang=\"ko\">");
+		out.write("<head>");
+		out.write("</head>");
+		out.write("<body>");
+		out.write("<h1>");
+		out.write("Join");
+		out.write("</h1>");
+		out.write("<hr>");
+		out.write("ID");
+		out.write(" <input type=\"text\" id=\"userId\" placeholder=\"USER ID\">");
+		out.write("</body>");
+		out.write("</html>");
+	}
+}

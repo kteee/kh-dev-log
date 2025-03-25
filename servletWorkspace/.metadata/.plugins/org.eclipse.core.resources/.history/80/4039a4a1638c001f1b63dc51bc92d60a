@@ -1,0 +1,504 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/WEB-INF/home.css" type="text/css">
+<style>
+
+body {
+    margin: 0;
+    font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+#outer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 90px 1fr 200px;
+}
+
+header {
+    border-bottom: 1px solid rgb(211, 211, 211);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header > div {
+    width: 1150px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+header > div > div:nth-child(1) {
+    font-size: 35px;
+    font-weight: 600;
+    cursor: pointer;
+    padding-left: 50px;
+}
+
+header > div > div > input {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 15px;
+    padding-left: 18px;
+    padding-right: 70px;
+    width: 460px;
+    border: 1px solid rgb(139, 139, 139);
+    border-radius: 20px;
+}
+
+header > div > div > button {
+    position: relative;
+    right:62px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(238, 238, 238);
+    cursor: pointer;
+    padding: 4px 9px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+header > div > div > button:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+header > div > div:nth-child(3) {
+    padding-right: 50px;
+}
+
+header > div > div:nth-child(3) > span {
+    font-size: 14px;
+    margin-left: 9px;
+    color: rgb(37, 37, 37);
+    cursor: pointer;
+}
+
+main {
+    background-color: rgb(250, 250, 250);
+}
+
+main > div {
+    background-color: rgb(250, 250, 250);
+    width: 1150px;
+    height: 100%;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 258px 1fr;
+}
+
+#location-theme-area {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    padding: 20px 50px;
+    box-shadow: 0px 0px 1px rgb(160, 160, 160);
+}
+
+#location-theme-area > div:nth-child(1) {
+    margin-top: 4px;
+    height: 50px;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+#location-theme-area > div:nth-child(2) {
+    margin-top: 5px;
+    height: 40px;
+}
+
+#location-theme-area > div:nth-child(2) > span {
+    padding: 4px 13px;
+    border-radius: 20px;
+    margin-right: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#location-theme-area > div:nth-child(3) {
+    height: 98px;
+}
+
+.selected {
+    background-color: rgb(247, 111, 77);
+    color:rgb(255, 255, 255);
+    box-shadow: 0px 0px 2px rgb(247, 111, 77);
+}
+
+.non-selected {
+    border: 1px solid rgb(211, 211, 211);
+}
+
+
+#location-theme-list > div{
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#location-theme-list > div > div {
+    width: 68px;
+    height: 65px;
+    border: 1px solid rgb(240, 240, 240);
+    background-color: rgb(247, 247, 247);
+    border-radius: 35px;
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+#location-theme-list > div> div:hover {
+    background-color:#faf1ef;
+    border: 1px solid  rgb(252, 163, 140);
+    font-weight: 500;
+
+}
+
+#location-theme-list > .hidden-area {
+    display: none;
+}
+
+#list-area {
+    margin-bottom: 35px;
+    background-color: white;
+    padding: 20px 50px;
+    box-shadow: 0px 0px 1px rgb(160, 160, 160);
+}
+
+#list-area>div:nth-child(1)>div:nth-child(1) {
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+#viewlist {
+    display:grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 50px 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-type {
+    margin: 8px;
+}
+
+.filter {
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.filter > div {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(242, 242, 242);
+    border-radius: 12px;
+    padding: 4px 10px;
+    font-size: 15px;
+}
+
+#list-area>div:nth-child(2) {
+    text-align: right;
+    margin-right : 15px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.restaurant-list-area{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 415px 415px;
+}
+
+.restaurant-list-area > div{
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    margin-right: 16px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 5px;
+
+}
+
+.restaurant-list-area >div>div>img{
+    width: 100%;
+    height: 230px;
+    border-radius: 10px;
+}
+
+.restaurant-list-area >div>div:nth-child(2){
+    font-size: 18px;
+    margin-top: 9px;
+    margin-bottom: 7px;
+   
+}
+
+.restaurant-list-area >div>div:nth-child(3){
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.restaurant-list-area >div>div:nth-child(4){
+    font-size: 14px;
+    color: rgb(82, 82, 82);
+    margin-bottom: 3px;
+}
+
+.restaurant-list-area >div>div:nth-child(5){
+    font-size: 14px;
+    color: rgb(82, 82, 82);
+}
+
+#list-area>div:nth-child(5) {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#list-area>div:nth-child(5) > div {
+    color: white;
+    width: 520px;
+    height: 40px;
+    background-color: rgb(247, 111, 77);
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    margin: 0 auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.restaurant-list-tag {
+    color:rgb(247, 111, 77);
+    font-weight: 600;
+}
+
+.restaurant-list-area.hidden-list{
+    display:none;
+}
+
+.restaurant-star {
+    color:rgb(255, 219, 61);
+}
+</style>
+</head>
+<body>
+   <div id="outer">
+        <header>
+            <div>
+                <div onclick="home();">🍝 logo</div>
+                <div><input type="text" id="searchbox" placeholder="지역 또는 가게명 입력"><button onclick="search();">검색</button></div>
+                <div>
+                    <span>로그인</span> 
+                    <span onclick="mypage();">마이페이지</span>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div>
+                <div id="location-theme-area">
+                    <div>
+                        <span>지역 · 테마별 인기 맛집</span>
+                    </div>
+                    <div>
+                        <!-- label 이용해서 만들려면???? -->
+                        <span id="location" class="selected" onclick="selectlocation();">지역</span>
+                        <span id= "theme" class="non-selected" onclick="selecttheme();">테마</span>
+                    </div>
+                    <div>
+                        <div id="location-theme-list">
+                            <div id="location-list" class = "show-area">
+                                <div>홍대</div>
+                                <div>성수</div>
+                                <div>명동</div>
+                                <div>연남</div>
+                                <div>건대</div>
+                                <div>강남</div>
+                                <div>여의도</div>
+                                <div>을지로</div> 
+                                <div>이태원</div> 
+                                <div>부산</div> 
+                                <div>제주도</div> 
+                            </div>
+                            <div id="theme-list" class="hidden-area">
+                                <div>웨이팅<br>TOP</div>
+                                <div>히든<br>플레이스</div>
+                                <div>데이트<br>맛집</div>
+                                <div>화제의<br>예능</div>
+                                <div>다이닝</div>
+                                <div>하이볼</div>
+                                <div>스시<br>오마카세</div>
+                                <div>우마카세</div> 
+                                <div>디저트</div> 
+                                <div>팝업<br>스토어</div> 
+                                <div>이달의<br>맛집</div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="list-area">
+                    <div>
+                        <div>내 지역 근처 맛집 찾기</div>
+                        <div id="viewlist">
+                            <div class="filter-type">지역</div>
+                            <div id="location-filter" class="filter">
+                                <div>전체</div>
+                                <div>서울</div>
+                                <div>인천</div>
+                                <div>경기</div>
+                                <div>강원</div>
+                                <div>충북</div>
+                                <div>충남</div>
+                                <div>부산</div>
+                                <div>대구</div>
+                                <div>울산</div>
+                                <div>전북</div>
+                                <div>전남</div>
+                                <div>제주도</div>
+                                <div>더보기</div>
+                            </div>
+                            <div class="filter-type">구분</div>
+                            <div id="other-filter" class="filter">
+                                <div>전체</div>
+                                <div>한식</div>
+                                <div>분식</div>
+                                <div>일식</div>
+                                <div>중식</div>
+                                <div>파인다이닝</div>
+                                <div>코스요리</div>
+                                <div>프랑스음식</div>
+                                <div>이탈리아음식</div>
+                                <div>베트남음식</div>
+                                <div>멕시코음식</div>
+                                <div>더보기</div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div>
+                            <select>
+                                <option>최신순</option>
+                                <option>별점순</option>
+                                <option>리뷰많은순</option>
+                            </select>
+                    </div>
+
+                        <div class="restaurant-list-area show-list">
+                            <div>
+                                <div><img src="../resources/img/restaurant01.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">1 </span>식당네오</div>
+                                <div><span class="restaurant-star">★</span> 4.9 (641) </div>
+                                <div>#룸 #노키즈존 #단체이용가능</div>
+                                <div>잠실 · 일식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant02.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">2 </span>트리드</div>
+                                <div><span class="restaurant-star">★</span> 4.7 (667) </div>
+                                <div>#주차가능 #발렛가능 #콜키지가능</div>
+                                <div>청담 · 코스요리</div>
+
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant03.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">3 </span>도량</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (223)</div>
+                                <div>#대기공간 #주차가능 #콜키지가능</div>
+                                <div>서촌 · 중식</div>
+
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant04.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">4 </span>디핀</div>
+                                <div><span class="restaurant-star">★</span> 4.9 (1,032)</div>
+                                <div>#콜키지가능 #노키즈존 #대관가능</div>
+                                <div>신당 · 다이닝바</div>
+
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant05.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">5 </span>티엔미미</div>
+                                <div><span class="restaurant-star">★</span> 4.6 (182) </div>
+                                <div>#단체이용가능 #무선인터넷</div>
+                                <div>홍대 · 중식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant06.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">6 </span>네기</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (447) </div>
+                                <div>#주차가능 #콜키지가능 #홀</div>
+                                <div>성수 · 일식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant07.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">7 </span>홍보각</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (317) </div>
+                                <div>#주차가능 #룸 #웰컴키즈존</div>
+                                <div>강남 · 중식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant08.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">8 </span>윤서울</div>
+                                <div><span class="restaurant-star">★</span> 4.7 (329) </div>
+                                <div>#콜키지가능 #대관가능 </div>
+                                <div>압구정로데오 · 한식</div>
+                            </div>
+                        </div>
+                        <div class="restaurant-list-area hidden-list">
+                            <div>
+                                <div><img src="../resources/img/restaurant09.png.png"></div>
+                                <div><span class="restaurant-list-tag">9 </span>포노부오노</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (245) </div>
+                                <div>#룸 #주차가능 #단체이용가능</div>
+                                <div>도산공원 · 이탈리아음식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant10.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">10 </span>쵸이닷</div>
+                                <div><span class="restaurant-star">★</span> 4.5 (2,061) </div>
+                                <div>#주차가능 #발렛가능 #콜키지가능</div>
+                                <div>청담 · 이탈리아음식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant11.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">11 </span>조광201</div>
+                                <div><span class="restaurant-star">★</span> 4.8 (85)</div>
+                                <div>#콜키지가능 #홀 #단체이용가능</div>
+                                <div>문정 · 중식</div>
+                            </div>
+                            <div>
+                                <div><img src="../resources/img/restaurant12.jpg.jpg"></div>
+                                <div><span class="restaurant-list-tag">12 </span>본연</div>
+                                <div><span class="restaurant-star">★</span> 4.9 (103)</div>
+                                <div>#콜키지가능 #주차가능 #대관가능</div>
+                                <div>논현 · 한식</div>
+                            </div>
+                        </div>
+                        <div> 
+                            <div id="view-more" class="show-area" onclick="viewmore();"> 더보기 ▼ </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

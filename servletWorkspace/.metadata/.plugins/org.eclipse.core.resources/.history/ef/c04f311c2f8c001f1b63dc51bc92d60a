@@ -1,0 +1,26 @@
+package com.kh.app.home.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/home")
+public class HomeController extends HttpServlet{
+	
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String id = req.getParameter("id"); // 클라이언트(크롬이 톰캣한테)가 보내온 데이터를 꺼내옴
+		String pwd = req.getParameter("pwd");
+		System.out.println("클라이언트로부터 전달받은 id :" + id);
+		System.out.println("클라이언트로부터 전달받은 pwd :" + pwd);
+		PrintWriter out = resp.getWriter();
+		out.write("<h1>HOME~!</h1>");
+
+	}
+	
+}

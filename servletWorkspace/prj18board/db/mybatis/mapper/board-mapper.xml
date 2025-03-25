@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="BoardMapper">
+  <insert id="write">
+  	INSERT INTO BOARD
+	(
+	    NO
+	    ,TITLE
+	    ,CONTENT
+	    ,WRITER_NO
+	)
+	VALUES
+	(
+	    SEQ_BOARD.NEXTVAL
+	    ,#{title} 
+	    ,#{content} 
+	    ,#{writerNo} 
+	)
+  </insert>
+  
+  <update id="edit"></update>
+  
+  <delete id="delete">
+  	DELETE FROM BOARD 
+  	WHERE NO IN 
+  	
+  	<foreach collection="array" item="x" separator="," open="(" close=")">
+  		#{x}
+  	</foreach>
+  	
+  </delete>
+  
+  <select id="findOneByNo"></select>
+  
+  <select id="findList" resultType="BoardVo">
+  	SELECT 
+  		B.NO
+  		, B.TITLE
+  		, B.CONTENT
+  		, M.NICK		  AS WRITER_NICK
+  		, B.ENROLL_DATE
+  		, B.MODIFY_DATE
+  		, B.HIT
+  		, B.DEL_YN
+	FROM BOARD B
+	JOIN MEMBER M ON (B.WRITER_NO = M.NO)
+	WHERE B.DEL_YN = 'N'
+	<if test="st != null">
+	AND ${st} LIKE '%${sv}%'
+	</if>
+	ORDER BY B.NO DESC
+  </select>
+  
+  <select id="getBoardCount" resultType="int">
+  	SELECT COUNT(*)
+  	FROM BOARD
+  	WHERE DEL_YN = 'N'
+  </select>
+  
+</mapper>

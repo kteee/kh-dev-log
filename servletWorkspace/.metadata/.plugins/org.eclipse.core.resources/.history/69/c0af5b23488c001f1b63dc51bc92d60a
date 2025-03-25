@@ -1,0 +1,72 @@
+package test;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/join/view")
+public class JoinViewController extends HttpServlet{
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		PrintWriter out = resp.getWriter();
+		out.write("<!DOCTYPE html>");
+		out.write("<html lang=\"ko\">");
+		out.write("<head>");
+		out.write("<style>");
+		out.write("form {");
+		out.write("width: 300px;");
+		out.write("height: 100px;");
+		out.write("}");
+		out.write("#outer{");
+		out.write("display:grid;");
+		out.write("grid-template-columns: 100px 200px;");
+		out.write("grid-template-rows:1fr;");
+		out.write("}");
+		out.write("#outer > div > div > input {");
+		out.write("width: 200px;");
+		out.write("box-sizing: border-box;");
+		out.write("}");
+		out.write("#outer > div {");
+		out.write("display:flex;");
+		out.write("flex-direction: column;");
+		out.write("}");
+		out.write("form > div:nth-child(2){");
+		out.write("text-align: right;");
+		out.write("}");
+		out.write("</style>");
+		out.write("</head>");
+		out.write("<body>");
+		out.write("<h1>");
+		out.write("Join");
+		out.write("</h1>");
+		out.write("<hr>");
+		out.write("<form>");
+		out.write("<div id=\"outer\">");
+		out.write("<div>");
+		out.write("<div>ID</div>");
+		out.write("<div>PASSWORD</div>");
+
+
+				+ "               \r\n"
+				+ "                \r\n"
+				+ "                <div>NICK</div>\r\n"
+				+ "            </div>\r\n"
+				+ "            <div>\r\n"
+				+ "                <div><input type=\"text\" id=\"userId\"></div>\r\n"
+				+ "                <div><input type=\"password\" id=\"userPwd\"></div>\r\n"
+				+ "                <div><input type=\"text\" id=\"userNick\"></div>\r\n"
+				+ "            </div>\r\n"
+				+ "        </div>\r\n"
+				+ "        <div><input type=\"submit\" value=\"JOIN\"></div>\r\n"
+				+ "    </form>");
+		out.write("</body>");
+		out.write("</html>");
+	}
+}

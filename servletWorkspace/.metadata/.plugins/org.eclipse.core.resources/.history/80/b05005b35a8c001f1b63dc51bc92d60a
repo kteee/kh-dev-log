@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>회원가입 화면</h1>
+	
+	<% System.out.println("ghgh"); 
+	// 자바코드 작성은 < % % > 안에다가 
+	%> 
+	
+	<%!public void m01() {
+	}
+	// 메서드는 !를 붙여서 만들어준다 
+	%> 
+	
+	<%@ page import ="java.util.ArraList";
+	// import는 @를 붙인다!
+	%>
+
+</body>
+</html>
