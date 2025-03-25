@@ -1,0 +1,175 @@
+-- <MEMBER>
+DROP TABLE MEMBER CASCADE CONSTRAINTS;
+CREATE TABLE MEMBER (
+    NO              NUMBER          PRIMARY KEY
+    , ID            VARCHAR2(100)   NOT NULL UNIQUE CHECK ( LENGTH(ID) > 1 )
+    , PWD           VARCHAR2(100)   NOT NULL CHECK ( LENGTH(PWD) > 1 )
+    , NICK          VARCHAR2(100)   NOT NULL CHECK ( LENGTH(NICK) > 1 )
+    , ENROLL_DATE   TIMESTAMP       DEFAULT SYSDATE
+    , MODIFY_DATE   TIMESTAMP
+    , DEL_YN        CHAR(1)         DEFAULT 'N' CHECK ( DEL_YN IN ('Y', 'N') )
+);
+
+DROP SEQUENCE MEMBER_SEQ;
+CREATE SEQUENCE MEMBER_SEQ;
+
+SELECT * FROM MEMBER; 
+
+-- 회원가입
+INSERT INTO MEMBER(NO, ID, PWD, NICK) VALUES(MEMBER_SEQ.NEXTVAL, ?, ?, ?)
+;
+
+-- 로그인
+SELECT *
+FROM MEMBER
+WHERE ID = ?
+AND PWD = ?
+AND DEL_YN = 'N' 
+;   
+
+-- 비밀번호 변경 (비밀번호 확인 후 새 비밀번호 설정)
+UPDATE MEMBER
+SET PWD = ? -- 새 비밀번호 설정
+    , MODIFY_DATE = SYSDATE
+WHERE NO = ? -- 로그인한 멤버의 회원번호의 비밀번호 변경
+AND PWD = ? -- 기존 비밀번호 확인
+; 
+
+-- 닉네임 변경
+UPDATE MEMBER
+SET NICK = ?
+    , MODIFY_DATE = SYSDATE
+WHERE NO = ? 
+;
+
+-- 회원탈퇴 (비밀번호 확인 후 탈퇴 처리)
+UPDATE MEMBER
+SET DEL_YN = 'Y'
+    , MODIFY_DATE = SYSDATE
+WHERE NO = ? 
+AND PWD = ? 
+;
+
+-- (관) 회원 목록 조회
+SELECT *
+FROM MEMBER
+ORDER BY NO DESC 
+;
+
+-- (관) 회원 상세 조회
+SELECT *
+FROM MEMBER
+WHERE NO = ? 
+; 
+
+-- (관) 회원 검색 (ID, 닉네임)
+SELECT *
+FROM MEMBER
+WHERE ID LIKE '%' || ? || '%' 
+ORDER BY NO DESC
+; -- ID가 일부 일치하는 회원 조회
+
+SELECT *
+FROM MEMBER
+WHERE PHONE LIKE '%' || ? || '%' 
+ORDER BY NO DESC
+; -- 닉네임 일부 일치하는 회원 조회
+
+
+-- <MOVIE>
+DROP TABLE MOVIE CASCADE CONSTRAINTS;
+CREATE TABLE MOVIE (
+    NO                      NUMBER          PRIMARY KEY
+    , TITLE                 VARCHAR2(100)   NOT NULL
+    , GENRE                 VARCHAR2(20)    NOT NULL
+    , SHOW_DATE             VARCHAR2(8)     NOT NULL        CHECK ( LENGTH(SHOW_DATE) = 8 )
+    , SHOW_STATUS           CHAR(1)         DEFAULT '1'     CHECK ( SHOW_STATUS IN ('1', '2') )
+    , SEAT_COUNT            NUMBER          NOT NULL        CHECK ( SEAT_COUNT >= 0 )
+    , RESERVATION_COUNT     NUMBER          DEFAULT 0       CHECK ( RESERVATION_COUNT >= 0 )
+    , ENROLL_DATE           TIMESTAMP       DEFAULT SYSDATE
+    , MODIFY_DATE           TIMESTAMP
+    , DEL_YN                CHAR(1)         DEFAULT 'N'     CHECK ( DEL_YN IN ('Y', 'N') )
+);
+
+-- SHOW_DATE : 1-상영예정 , 2-상영종료
+
+DROP SEQUENCE MOVIE_SEQ;
+CREATE SEQUENCE MOVIE_SEQ;
+
+SELECT * FROM MOVIE;
+
+-- 영화 등록
+INSERT INTO MOVIE (NO, TITLE, GENRE, SHOW_DATE, SEAT_COUNT) VALUES (MOVIE_SEQ.NEXTVAL, ?, ?, ?, ?)
+;
+
+-- 영화 상영상태 수정
+UPDATE MOVIE
+SET SHOW_STATUS = ?
+    , MODIFY_DATE = SYSDATE
+WHERE NO = ?
+AND DEL_YN = 'N'
+;
+
+-- 영화 삭제
+UPDATE MOVIE
+SET DEL_YN = 'Y'
+    , MODIFY_DATE = SYSDATE
+WHERE NO = ?
+AND DEL_YN = 'N'
+;
+
+-- 영화 목록 조회
+SELECT NO
+    , TITLE
+    , GENRE
+    , TO_CHAR(TO_DATE(SHOW_DATE), 'YYYY-MM-DD') AS SHOW_DATE
+    , CASE 
+        WHEN SHOW_STATUS = '1' THEN '상영예정'
+        WHEN SHOW_STATUS = '2' THEN '상영종료'
+        END AS SHOW_STATUS
+    , SEAT_COUNT
+    , RESERVATION_COUNT
+    , ENROLL_DATE
+    , MODIFY_DATE
+    , DEL_YN 
+    , CASE 
+        WHEN SHOW_STATUS = '1' AND SEAT_COUNT > RESERVATION_COUNT THEN '예매가능'
+        ELSE '예매불가'
+        END AS "RESERVABLE_YN"
+FROM MOVIE
+WHERE DEL_YN = 'N'
+ORDER BY SHOW_STATUS
+;
+
+-- 영화 상세 조회
+SELECT NO
+    , TITLE
+    , GENRE
+    , TO_CHAR(TO_DATE(SHOW_DATE), 'YYYY-MM-DD') AS SHOW_DATE
+    , CASE 
+        WHEN SHOW_STATUS = '1' THEN '상영예정'
+        WHEN SHOW_STATUS = '2' THEN '상영종료'
+        END AS SHOW_STATUS
+    , SEAT_COUNT
+    , RESERVATION_COUNT
+    , ENROLL_DATE
+    , MODIFY_DATE
+    , DEL_YN 
+    , CASE 
+        WHEN SHOW_STATUS = '1' AND SEAT_COUNT > RESERVATION_COUNT THEN '예매가능'
+        ELSE '예매불가'
+        END AS "RESERVABLE_YN"
+FROM MOVIE
+WHERE NO = ?
+AND DEL_YN = 'N'
+;
+
+-- 영화 예매하기 (+ 예매가능여부 체크)
+UPDATE MOVIE
+SET RESERVATION_COUNT = RESERVATION_COUNT + 1
+WHERE NO = ?
+AND SHOW_STATUS = '1'
+AND SEAT_COUNT > RESERVATION_COUNT
+AND DEL_YN = 'N'
+;
+

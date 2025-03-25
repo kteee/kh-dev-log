@@ -1,0 +1,77 @@
+-- BUCKETLIST 테이블/시퀀스
+CREATE TABLE BUCKETLIST (
+    NO                  NUMBER            PRIMARY KEY
+    , NAME              VARCHAR2(1000)    NOT NULL
+    , CATEGORY          VARCHAR2(1000)    NOT NULL
+    , PRIORITY          NUMBER            NOT NULL  CHECK (PRIORITY=1 OR PRIORITY=2 OR PRIORITY=3)
+    , COMPLETE_DATE     TIMESTAMP          
+    , ENROLL_DATE       TIMESTAMP         DEFAULT SYSDATE
+    , DEL_YN            CHAR(1)           DEFAULT 'N'  
+);
+
+CREATE SEQUENCE SEQ_BUCKETLIST NOCACHE NOCYCLE;
+
+-- 버킷리스트 등록
+INSERT INTO BUCKETLIST
+(
+    NO
+    , NAME
+    , CATEGORY
+    , PRIORITY
+    , COMPLETE_DATE
+)
+VALUES
+(
+    SEQ_BUCKETLIST.NEXTVAL
+    , '제주도여행'
+    , '여행'
+    , 1
+    , '2024-02-10'
+)
+;
+
+
+-- 버킷리스트 목록 조회
+SELECT 
+    NO
+    , NAME
+    , CATEGORY
+    , PRIORITY
+    , COMPLETE_DATE
+    , ENROLL_DATE
+    , DEL_YN 
+FROM BUCKETLIST
+WHERE DEL_YN = 'N'
+ORDER BY NO DESC
+;
+
+-- 버킷리스트 상세 조회
+SELECT 
+    NO
+    , NAME
+    , CATEGORY
+    , PRIORITY
+    , COMPLETE_DATE
+    , ENROLL_DATE
+    , DEL_YN 
+FROM BUCKETLIST
+WHERE NO = 2
+AND DEL_YN = 'N'
+;
+
+-- 버킷리스트 수정
+UPDATE BUCKETLIST
+SET NAME = '경주여행'
+    , CATEGORY = '국내여행'
+    , PRIORITY = 2
+    , COMPLETE_DATE = '2024-10-10'
+WHERE NO = 2 
+;
+
+-- 버킷리스트 삭제
+UPDATE BUCKETLIST
+SET DEL_YN = 'Y'
+WHERE NO = 2 
+;
+
+COMMIT;

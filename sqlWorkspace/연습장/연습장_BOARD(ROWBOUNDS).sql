@@ -1,0 +1,13 @@
+SELECT 
+    B.NO
+    , B.TITLE
+    , B.CONTENT
+    , M.NICK
+    , B.ENROLL_DATE
+    , B.HIT
+    , B.MODIFY_Date
+    , B.DEL_YN
+FROM BOARD B
+JOIN MEMBER M ON (B.WRITER_NO = M.NO)
+WHERE B.DEL_YN = 'N'
+ORDER BY B.NO DESC;

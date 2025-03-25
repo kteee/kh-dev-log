@@ -1,0 +1,26 @@
+-- 짝대기 두개 입력하면 주석처리
+
+-- 테이블 만들기
+CREATE TABLE MEMBER(
+    NO      NUMBER
+    ,ID     VARCHAR2(100)
+    ,PWD    VARCHAR2(100)
+    ,NICK   VARCHAR2(100) 
+);
+
+-- CRUD
+SELECT * 
+FROM MEMBER;
+
+INSERT INTO MEMBER (NO, ID, PWD, NICK) 
+VALUES (1, 'USER01', '1234', 'NICK01');
+
+UPDATE MEMBER 
+SET 
+PWD='1111'
+;
+
+DELETE FROM MEMBER;
+
+-- 테이블 삭제 
+DROP TABLE MEMBER;
