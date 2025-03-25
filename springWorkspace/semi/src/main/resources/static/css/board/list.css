@@ -1,0 +1,33 @@
+.table-area{
+    background-color: white;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.page-area{
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.page-area > a{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    background-color: darkgray;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    text-decoration: none;
+}
+
+.main-bottom-area{
+    display: flex;
+    justify-content: end;
+}
